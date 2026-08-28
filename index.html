@@ -1,3 +1,220 @@
+
+Gemini
+
+Trò chuyện
+
+Spark
+beta
+Cuộc trò chuyện mới
+Tìm kiếm trong các cuộc trò chuyện
+Video
+Thư viện
+Sổ ghi chú mới
+PHÁT HÀNH CP
+Nhánh • Tạo Dashboard Chỉ Tiêu Tài Chính
+Hướng dẫn chỉnh sửa Dashboard Excel
+Cập nhật và chỉnh sửa dashboard
+Xây dựng Dashboard Phân bổ Tài khoản
+Nhánh • Xây dựng Dashboard Phân bổ Tài khoản
+Tạo Dashboard Chỉ Tiêu Tài Chính
+Dashboard Sản Lượng và Doanh Thu Điện 2020-2026
+Tạo biểu mẫu Excel theo Thông tư
+Khởi đầu trợ giúp công việc
+Chi nhánh có được tham gia đấu thầu với tư cách nhà thầu theo luật đấu thầu không
+Bảo đảm dự thầu theo Luật Đấu thầu
+Biên tập tờ trình phát hành cổ phiếu tăng vốn
+Góp ý TT45: Nguyên giá, Sửa chữa, Nâng cấp
+Chỉnh sửa ảnh thẻ 3x4 nền trắng
+Initial Greeting and Introduction
+Tạo bảng Excel từ dữ liệu hình ảnh
+Tài liệu tự học kế toán dự án
+Hỗ trợ cập nhật địa chỉ thuế
+Phí Cam Kết Tín Dụng Không Chịu Thuế
+Tổng hợp tiền thuê đất VRG Bảo Lộc
+Tờ Trình Tăng Vốn Điều Lệ Dự Án
+Mẫu Đề Nghị Tuyển Dụng Nhân Sự
+Trò chuyện với Gemini
+Từ công thức tính trong file excel đã cho yêu cầu:
+
+1. Tạo dashboard trình bày các chỉ tiêu tài chính theo thứ tự công thức có trong file excel với dữ liệu đầu vào là báo cáo tài chính qua các năm kèm theo.
+
+2. Trình bày dưới dạng file có nút tùy chọn danh sách sổ xuống trong 1 tab.
+
+Chú ý: Các chỉ tiêu tài chính trong công thức lấy đúng trên báo cáo tài chính
+
+Your XLSX file is ready
+
+Biểu tượng XLSX
+Dashboard_Chi_Tieu_Tai_Chinh
+ XLSX 
+Đang mở
+File Dashboard đã được tạo thành công với cấu trúc chỉ tiêu từ template Excel và số liệu trích xuất trực tiếp từ các Báo cáo tài chính đã được cung cấp (số liệu các năm 2022, 2023, 2024 và 2025).  
+PDF
++ 2
+
+Dashboard được thiết kế trực quan trên 1 tab duy nhất, kèm theo danh sách thả xuống (dropdown list) ở ô C4 cho phép bạn tùy chọn năm cần phân tích (2023, 2024 hoặc 2025). Khi thay đổi năm, toàn bộ các chỉ tiêu tài chính bao gồm khả năng thanh toán, hiệu suất hoạt động, cơ cấu tài chính và tỷ suất sinh lời sẽ tự động tính toán và cập nhật theo đúng số liệu BCTC.  
+PDF
++ 2
+
+Đối với các công thức yêu cầu sử dụng số liệu "bình quân", hệ thống đã được thiết lập để tự động lấy số liệu đầu năm (của năm trước đó) và cuối năm hiện tại nhằm đưa ra kết quả chính xác nhất. Các chỉ tiêu về chi phí lãi vay và dư nợ dài hạn ở một số năm được thiết lập giá trị mặc định phản ánh đúng tình trạng không phát sinh vay nợ của công ty trên báo cáo.  
+PDF
++ 2
+
+hãy xuất file đó dưới dạng html
+
+Your HTML file is ready
+
+Biểu tượng HTML
+Dashboard_Chi_Tieu_Tai_Chinh
+ HTML 
+Đang mở
+File HTML trên đã được thiết kế dưới dạng Dashboard tương tác. Bạn có thể mở file này bằng bất kỳ trình duyệt web nào (Chrome, Edge, Safari...) và dễ dàng chọn năm tài chính (2023, 2024, 2025) ở góc trên bên phải để xem các chỉ số đã được tự động tính toán dựa trên dữ liệu báo cáo tài chính của các năm tương ứng.
+
+hãy thêm các cột so sánh với số liệu là của các năm trước liền kề và 1 cột là tỷ lệ tăng (+) hoặc giảm (-), sửa lại code do tải về bị lỗi không hiển thị
+
+Tôi đã xử lý lại code để khắc phục lỗi không hiển thị, đồng thời bổ sung thêm 2 cột mới theo yêu cầu của bạn: một cột cho số liệu Năm trước liền kề và một cột hiển thị Tỷ lệ tăng/giảm (%).
+
+Biểu tượng HTML
+Dashboard_Tai_Chinh_So_Sanh
+ HTML 
+Đang mở
+Dưới đây là một số cập nhật chính trong bản Dashboard HTML này:
+
+Thiết kế thân thiện hơn: Các giá trị của năm nay được làm nổi bật với màu chữ xanh dương.
+
+So sánh trực quan:
+
+Tỷ lệ tăng hiển thị màu xanh lá (+).
+
+Tỷ lệ giảm hiển thị màu đỏ (-).
+
+Tiêu đề cột (Năm nay/Năm trước) tự động cập nhật số năm cụ thể (VD: Khi chọn 2025 thì cột Năm trước sẽ ghi rõ là "Năm 2024").
+
+Mã hóa An toàn (UTF-8): Tránh lỗi font chữ tiếng Việt khi bạn tải file về máy.
+
+Bạn có thể lưu (tải về) file Dashboard_Tai_Chinh_So_Sanh.html bằng cách nhấp vào tên file ở trên và mở trực tiếp bằng trình duyệt (Chrome, Safari, Cốc Cốc, v.v.) để xem cấu trúc phân tích tài chính nhé.
+
+There is a file you can reference named "Dashboard_Tai_Chinh_So_Sanh.html". Refer to this file by its name verbatim.
+
+Cũng yêu cầu tương tự nêu trên, hãy cập nhật thêm dữ liệu của các năm đính kèm và xuất lại file html cho tôi
+
+Tôi đã cập nhật toàn bộ số liệu theo các Báo cáo tài chính bạn vừa đính kèm.
+
+Hiện tại, file HTML đã có đầy đủ dữ liệu từ năm 2019 đến giữa năm 2026 (các số liệu 2019, 2020, 2021, và 6 tháng đầu năm 2026 được trích xuất từ các báo cáo mới cung cấp).
+
+Cấu trúc file vẫn giữ nguyên các cập nhật về:
+
+Chọn năm ở góc phải (Có thể xem phân tích các năm 2020, 2021, 2022, 2023, 2024, 2025 và 2026).
+
+So sánh số liệu năm hiện tại và năm trước liền kề (Ví dụ: Khi chọn 2021, bảng sẽ tự động so sánh số liệu năm 2021 với năm 2020).
+
+Cột Tỷ lệ Tăng/Giảm (+/-) có màu tự động.
+
+Mời bạn tải về file HTML dưới đây:
+
+Biểu tượng HTML
+Dashboard_Tai_Chinh_So_Sanh_Toan_Dien
+ HTML 
+Đang mở
+Hãy mở tệp này bằng bất kỳ trình duyệt web nào (Google Chrome, Cốc Cốc, Edge...) để trực tiếp sử dụng.
+
+Từ Tạo Dashboard Chỉ Tiêu Tài Chính
+Tạo và thêm vào wartermark với tên Trần Thị Thanh Thúy-0983 849 022 vào file Dashboard ở trên
+
+Your HTML file is ready
+
+Biểu tượng HTML
+Dashboard_Tai_Chinh_Watermark
+ HTML 
+Đang mở
+Tôi đã thêm thành công watermark chìm với nội dung "Trần Thị Thanh Thúy-0983 849 022" rải rác đan chéo trên toàn bộ nền màn hình của file phân tích tài chính để bảo vệ bản quyền tài liệu của bạn. Chữ nền được thiết lập mức độ làm mờ (opacity) hợp lý nên sẽ không che khuất dữ liệu bên trong Dashboard.
+
+Mời bạn tải về và sử dụng ở file đính kèm!
+
+Tạo và thêm vào wartermark với nội dung: Copy right "Trần Thị Thanh Thúy-0983 849 022: vào file Dashboard ở trên
+
+Your HTML file is ready
+
+Biểu tượng HTML
+Dashboard_Tai_Chinh_Watermark_Copy_Right
+ HTML 
+Đang mở
+Tôi đã tạo mới file HTML và áp dụng watermark chìm với nội dung chính xác theo yêu cầu của bạn: Copy right "Trần Thị Thanh Thúy-0983 849 022".
+
+Watermark này được lặp lại chéo toàn màn hình một cách tinh tế (làm mờ 15%) để bảo vệ quyền sở hữu của bạn mà không gây ảnh hưởng đến việc đọc các số liệu tài chính trên Dashboard. Bạn tải về và mở file trên trình duyệt để kiểm tra nhé!
+
+Tạo thêm 1 nút chức năng lệnh in để tôi có thể in báo cáo ra giấy để phục vụ công việc lưu hồ sơ
+
+Your HTML file is ready
+
+Biểu tượng HTML
+Dashboard_Tai_Chinh_Printable
+ HTML 
+Đang mở
+Tôi đã thêm nút chức năng "🖨️ In Báo Cáo" (Print) nằm ở góc phải bên cạnh hộp tùy chọn năm phân tích trong file Dashboard HTML.
+
+Bên cạnh đó, file HTML này đã được thiết lập quy tắc tự động tối ưu hóa khi bạn nhấn in:
+
+Tự động ẩn thanh công cụ điều khiển (ẩn nút In và khung Chọn Năm) để bản in giấy trông chuyên nghiệp.
+
+Mở rộng bảng lấp đầy trang giấy (bỏ các đổ bóng và căn lề thừa).
+
+Hiệu chỉnh watermark mờ xuống để hiển thị nhẹ trên bản in mà không làm khó đọc số liệu.
+(Mẹo nhỏ: Khi xuất hiện cửa sổ tùy chọn in trên trình duyệt, hãy chắc chắn rằng bạn đánh dấu tích vào ô "Background graphics / Đồ họa nền" để watermark cũng được in ra).
+
+Bạn hãy tải file đính kèm dưới đây về, mở bằng trình duyệt và nhấp vào nút "In Báo Cáo" thử xem nhé!
+
+There is a file you can reference named "Dashboard_Tai_Chinh_Printable.html". Refer to this file by its name verbatim.
+
+từ file dashboard ở trên, hãy tạo thêm 1 tab nguồn với yêu cầu:
+
+1. số liệu trong tab nguồn được link qua tab chỉ tiêu tài chính.
+
+2. tab nguồn cho phép thay đổi số liệu, thêm/bớt cột và khi tab nguồn thay đổi thì số liệu tab phân tích cũng tự động thay đổi theo.
+
+3. Các định dạng và yêu cầu còn lại giữ nguyên theo Dashboard gốc
+
+Tôi đã xử lý hoàn tất các yêu cầu của bạn, file Dashboard_Tai_Chinh_Dong_Watermark.html hiện tại là một "phần mềm phân tích tài chính mini" trên nền HTML với các tính năng sau:
+
+Biểu tượng HTML
+Dashboard_Tai_Chinh_Dong_Watermark
+ HTML 
+Đang mở
+Tab "Nguồn dữ liệu" động:
+
+Đã được liên kết trực tiếp với Dashboard qua các thuật toán tính toán được tích hợp sẵn.
+
+Bạn có thể thay đổi/gõ trực tiếp số liệu vào các ô tính. Số liệu sẽ tự định dạng dấu phẩy (,).
+
+Có sẵn nút "+ Thêm Năm" và "- Bớt Năm" để bạn dễ dàng quản lý thêm các báo cáo của những năm sau này hoặc xóa bớt năm cũ.
+
+Tự động đồng bộ: Ngay khi bạn sửa một con số bên tab Nguồn Dữ Liệu, bảng Dashboard Phân Tích sẽ tự động tính toán lại mà không cần tải lại trang.
+
+Giữ nguyên chuẩn định dạng gốc:
+
+Các định dạng màu sắc xanh chủ đạo, phong cách tối giản.
+
+Các tính năng in ấn (🖨️ In Báo Cáo).
+
+Có hiển thị so sánh chênh lệch giữa hai năm.
+
+Chữ ký bản quyền (Watermark):
+
+Watermark Copy right "Trần Thị Thanh Thúy-0983 849 022" tiếp tục được hiển thị đan chéo trên toàn bộ màn hình một cách trong suốt (kể cả khi in ra giấy).
+
+Hướng dẫn sử dụng:
+
+Vui lòng bấm vào tên file Dashboard_Tai_Chinh_Dong_Watermark.html đính kèm ở trên để tải về.
+
+Mở file này bằng trình duyệt web (Chrome, Edge, Safari...).
+
+Chuyển đổi giữa 2 nút "📊 Dashboard Phân Tích" và "📝 Nguồn Dữ Liệu" ở đầu trang để làm việc.
+
+ 1. Hãy thêm giúp tôi vào file trên đoạn câu sau "File báo cáo này được tạo bởi Phòng Tài chính-Kế toán công ty, số 263 Hoàng Văn Thụ, Phường 1 Bảo Lộc, tỉnh Lâm Đồng. Email: tckt@vrgbaoloc.com" tại cuối trang hiển thị giống như phiên bản website
+
+2. Loại bỏ Watermark Copy right "Trần Thị Thanh Thúy-0983 849 022"
+
+Python
 import json
 
 data = {
@@ -567,3 +784,523 @@ with open("Dashboard_Tai_Chinh_Final.html", "w", encoding="utf-8") as f:
     f.write(html_content)
 
 print("Created successfully with footer and no watermark.")
+
+Kết quả chạy mã
+Created successfully with footer and no watermark.
+
+Yêu cầu của bạn đã được thực hiện. Trong file này:
+
+Biểu tượng HTML
+Dashboard_Tai_Chinh_Final
+ HTML 
+Đang mở
+Hình mờ (watermark) "Copy right..." đan chéo trên màn hình đã được xóa bỏ hoàn toàn.
+
+Dòng footer "File báo cáo này được tạo bởi Phòng Tài chính-Kế toán công ty, số 263 Hoàng Văn Thụ, Phường 1 Bảo Lộc, tỉnh Lâm Đồng. Email: tckt@vrgbaoloc.com" đã được thêm vào cuối trang. Giao diện này được thiết kế chìm, có dải phân cách xám lịch sự giống như thiết kế thông dụng của chân trang website, giúp văn bản trở nên chuyên nghiệp và rõ ràng hơn.
+
+Bạn có thể tải về file Dashboard_Tai_Chinh_Final.html ở phía trên, mở và chọn "🖨️ In Báo Cáo" để kiểm tra tính hiển thị khi xuất ra tài liệu nhé. Chúc bạn làm việc hiệu quả!
+
+
+
+
+Gemini là một AI và có thể mắc sai sót.
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Chỉ Tiêu Tài Chính Động</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f4f8;
+            color: #333;
+            position: relative;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            padding-bottom: 0px; /* Adjust for footer */
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        h1 {
+            text-align: center;
+            color: #1a4f76;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            font-size: 28px;
+        }
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #1a4f76;
+            margin-bottom: 20px;
+        }
+        .tab-btn {
+            padding: 12px 25px;
+            background-color: #e9f0f5;
+            color: #1a4f76;
+            border: none;
+            border-radius: 8px 8px 0 0;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-right: 5px;
+            transition: background-color 0.3s;
+        }
+        .tab-btn.active {
+            background-color: #1a4f76;
+            color: #fff;
+        }
+        .tab-btn:hover:not(.active) {
+            background-color: #d1e2ef;
+        }
+        .tab-content {
+            display: none;
+            padding-bottom: 30px;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .controls {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 20px;
+            background-color: #e9f0f5;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .controls label {
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 16px;
+            color: #1a4f76;
+        }
+        select, input[type="text"], input[type="number"] {
+            padding: 8px 12px;
+            font-size: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+        }
+        select {
+            border: 2px solid #1a4f76;
+            background-color: #fff;
+            color: #1a4f76;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 15px;
+            background-color: #1a4f76;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin-left: 10px;
+        }
+        .btn.danger {
+            background-color: #dc3545;
+        }
+        .btn:hover {
+            opacity: 0.9;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        th, td {
+            padding: 12px 10px;
+            border: 1px solid #dce4ec;
+            text-align: left;
+        }
+        th {
+            background-color: #1a4f76;
+            color: #fff;
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+        .row-header td {
+            background-color: #d1e2ef;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #1a4f76;
+            font-size: 15px;
+        }
+        tr:nth-child(even):not(.row-header) {
+            background-color: #f9fbfd;
+        }
+        .center-col { text-align: center; }
+        .number-col {
+            text-align: right;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+        }
+        .current-col {
+            color: #0056b3;
+            background-color: #f0f7fb;
+        }
+        .prev-col { color: #6c757d; }
+        .change-positive { color: #28a745; }
+        .change-negative { color: #dc3545; }
+        .change-neutral { color: #6c757d; }
+        .formula-col { font-size: 13px; color: #555; font-style: italic; }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+            font-size: 14px;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+            background-color: #f9fbfd;
+            border-radius: 0 0 10px 10px;
+        }
+
+        /* Data Table Editable Cells */
+        #dataTable input {
+            width: 100%;
+            box-sizing: border-box;
+            text-align: right;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            color: #333;
+            border: 1px solid transparent;
+            background: transparent;
+        }
+        #dataTable input:focus {
+            border: 1px solid #1a4f76;
+            background: #fff;
+        }
+        #dataTable td.sticky-col {
+            position: sticky;
+            left: 0;
+            background-color: #f9fbfd;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        @media print {
+            body { background-color: #fff; padding: 0; }
+            .container { box-shadow: none; max-width: 100%; padding: 0; }
+            .controls, .tabs, #dataTab { display: none !important; }
+            #dashboardTab { display: block !important; }
+            th { color: #000; background-color: #e0e0e0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .row-header td { background-color: #f0f0f0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .footer {
+                position: relative;
+                margin-top: 20px;
+                border-top: 1px solid #ccc;
+                background-color: transparent;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Công Cụ Phân Tích Tài Chính</h1>
+    
+    <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('dashboardTab', this)">📊 Dashboard Phân Tích</button>
+        <button class="tab-btn" onclick="switchTab('dataTab', this)">📝 Nguồn Dữ Liệu</button>
+    </div>
+
+    <!-- TAB DASHBOARD -->
+    <div id="dashboardTab" class="tab-content active">
+        <div class="controls">
+            <label for="yearSelect">Năm phân tích:</label>
+            <select id="yearSelect" onchange="updateDashboard()"></select>
+            <button class="btn" onclick="window.print()">🖨️ In Báo Cáo</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th width="25%">CHỈ SỐ</th>
+                    <th width="25%">CÔNG THỨC TÍNH</th>
+                    <th width="10%">ĐƠN VỊ</th>
+                    <th width="15%" id="th-prev">NĂM TRƯỚC</th>
+                    <th width="15%" id="th-curr">NĂM NAY</th>
+                    <th width="10%">TĂNG/GIẢM</th>
+                </tr>
+            </thead>
+            <tbody id="dashboardBody"></tbody>
+        </table>
+    </div>
+
+    <!-- TAB DATA SOURCE -->
+    <div id="dataTab" class="tab-content">
+        <div class="controls" style="justify-content: space-between;">
+            <div style="color: #666; font-style: italic;">Lưu ý: Sửa số liệu trực tiếp vào ô, hệ thống sẽ tự động tính lại.</div>
+            <div>
+                <button class="btn" onclick="addYear()">+ Thêm Năm</button>
+                <button class="btn danger" onclick="removeLastYear()">- Bớt Năm</button>
+            </div>
+        </div>
+        <div style="overflow-x: auto;">
+            <table id="dataTable">
+                <thead id="dataHead"></thead>
+                <tbody id="dataBody"></tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div class="footer">
+        File báo cáo này được tạo bởi Phòng Tài chính-Kế toán công ty, số 263 Hoàng Văn Thụ, Phường 1 Bảo Lộc, tỉnh Lâm Đồng. Email: tckt@vrgbaoloc.com
+    </div>
+</div>
+
+<script>
+    // Initial Data
+    let rawData = {"TSNH": {"2019": 217157413110, "2020": 301718366603, "2021": 405216395852, "2022": 517651195196, "2023": 608862067943, "2024": 439599764174, "2025": 151209652006, "2026": 169095825406}, "TSDH": {"2019": 395199755490, "2020": 379232669592, "2021": 358938280218, "2022": 334106334340, "2023": 334740140896, "2024": 313098395101, "2025": 294240988014, "2026": 287727826912}, "TTS": {"2019": 612357168600, "2020": 680951036195, "2021": 764154676070, "2022": 851757529536, "2023": 943602208839, "2024": 752698159275, "2025": 445450640020, "2026": 456823652318}, "NPT": {"2019": 11338835026, "2020": 12236110120, "2021": 19678447496, "2022": 22512617533, "2023": 25511451595, "2024": 24269132055, "2025": 49350445035, "2026": 102370966110}, "NNH": {"2019": 11338835026, "2020": 12236110120, "2021": 19678447496, "2022": 22512617533, "2023": 25511451595, "2024": 24269132055, "2025": 29918347169, "2026": 82938868244}, "NDH": {"2019": 0, "2020": 0, "2021": 0, "2022": 0, "2023": 0, "2024": 0, "2025": 19432097866, "2026": 19432097866}, "VCSH": {"2019": 601018333574, "2020": 668714926075, "2021": 744476228574, "2022": 829244912003, "2023": 918090757244, "2024": 728429027220, "2025": 396100194985, "2026": 354452686208}, "HTK": {"2019": 9086799021, "2020": 8640258225, "2021": 8572215037, "2022": 7964764526, "2023": 7234388270, "2024": 6684836681, "2025": 5843972303, "2026": 5541940920}, "Tien": {"2019": 8543266844, "2020": 2440065032, "2021": 13071731997, "2022": 12779214088, "2023": 43368730535, "2024": 1973807185, "2025": 2447125363, "2026": 22741066160}, "KPT": {"2019": 26229847962, "2020": 28393063141, "2021": 30668957925, "2022": 34222751912, "2023": 32811837066, "2024": 30530181975, "2025": 31495943833, "2026": 39873027854}, "DTT": {"2019": 142988353179, "2020": 142038360499, "2021": 162645354526, "2022": 171236258922, "2023": 157216506734, "2024": 140273672902, "2025": 169820493055, "2026": 68959773775}, "LNTT": {"2019": 71533018969, "2020": 74783357960, "2021": 85214110426, "2022": 97024774123, "2023": 104881224730, "2024": 82586759609, "2025": 76417346058, "2026": 39003589029}, "LNST": {"2019": 67934272876, "2020": 72157806501, "2021": 80938255799, "2022": 92156683429, "2023": 94337150821, "2024": 74084405976, "2025": 60871667765, "2026": 31202871223}, "LV": {"2019": 0, "2020": 0, "2021": 0, "2022": 0, "2023": 0, "2024": 0, "2025": 0, "2026": 0}};
+    let metricLabels = {"TSNH": "T\u00e0i s\u1ea3n ng\u1eafn h\u1ea1n", "TSDH": "T\u00e0i s\u1ea3n d\u00e0i h\u1ea1n", "TTS": "T\u1ed5ng T\u00e0i s\u1ea3n", "NPT": "T\u1ed5ng n\u1ee3 ph\u1ea3i tr\u1ea3", "NNH": "N\u1ee3 ng\u1eafn h\u1ea1n", "NDH": "N\u1ee3 d\u00e0i h\u1ea1n", "VCSH": "V\u1ed1n ch\u1ee7 s\u1edf h\u1eefu", "HTK": "H\u00e0ng t\u1ed3n kho", "Tien": "Ti\u1ec1n v\u00e0 t\u01b0\u01a1ng \u0111\u01b0\u01a1ng ti\u1ec1n", "KPT": "C\u00e1c kho\u1ea3n ph\u1ea3i thu", "DTT": "Doanh thu thu\u1ea7n", "LNTT": "L\u1ee3i nhu\u1eadn tr\u01b0\u1edbc thu\u1ebf", "LNST": "L\u1ee3i nhu\u1eadn sau thu\u1ebf", "LV": "Chi ph\u00ed l\u00e3i vay"};
+    let layout = [{"type": "header", "label": "I. Ch\u1ec9 s\u1ed1 t\u1ed5ng qu\u00e1t"}, {"type": "row", "key": "I1", "label": "1. T\u1ef7 tr\u1ecdng T\u00e0i s\u1ea3n ng\u1eafn h\u1ea1n", "formula": "T\u00e0i s\u1ea3n ng\u1eafn h\u1ea1n / T\u1ed5ng T\u00e0i s\u1ea3n", "unit": "%"}, {"type": "row", "key": "I2", "label": "2. T\u1ef7 tr\u1ecdng T\u00e0i s\u1ea3n d\u00e0i h\u1ea1n", "formula": "T\u00e0i s\u1ea3n d\u00e0i h\u1ea1n / T\u1ed5ng T\u00e0i s\u1ea3n", "unit": "%"}, {"type": "row", "key": "I3", "label": "3. T\u1ef7 tr\u1ecdng n\u1ee3", "formula": "T\u1ed5ng n\u1ee3 ph\u1ea3i tr\u1ea3 / T\u1ed5ng ngu\u1ed3n v\u1ed1n", "unit": "%"}, {"type": "row", "key": "I4", "label": "4. T\u1ef7 tr\u1ecdng v\u1ed1n ch\u1ee7 s\u1edf h\u1eefu", "formula": "V\u1ed1n ch\u1ee7 s\u1edf h\u1eefu / T\u1ed5ng ngu\u1ed3n v\u1ed1n", "unit": "%"}, {"type": "header", "label": "II. Ch\u1ec9 s\u1ed1 v\u1ec1 kh\u1ea3 n\u0103ng thanh to\u00e1n"}, {"type": "row", "key": "II1", "label": "1. Kh\u1ea3 n\u0103ng thanh to\u00e1n t\u1ed5ng qu\u00e1t", "formula": "T\u1ed5ng T\u00e0i s\u1ea3n / T\u1ed5ng n\u1ee3 ph\u1ea3i tr\u1ea3", "unit": "L\u1ea7n"}, {"type": "row", "key": "II2", "label": "2. Kh\u1ea3 n\u0103ng thanh to\u00e1n n\u1ee3 d\u00e0i h\u1ea1n", "formula": "T\u00e0i s\u1ea3n d\u00e0i h\u1ea1n / N\u1ee3 d\u00e0i h\u1ea1n", "unit": "L\u1ea7n"}, {"type": "row", "key": "II3", "label": "3. Ch\u1ec9 s\u1ed1 thanh to\u00e1n hi\u1ec7n h\u00e0nh", "formula": "T\u00e0i s\u1ea3n ng\u1eafn h\u1ea1n / N\u1ee3 ng\u1eafn h\u1ea1n", "unit": "L\u1ea7n"}, {"type": "row", "key": "II4", "label": "4. Ch\u1ec9 s\u1ed1 thanh to\u00e1n nhanh", "formula": "(T\u00e0i s\u1ea3n ng\u1eafn h\u1ea1n - H\u00e0ng t\u1ed3n kho) / N\u1ee3 ng\u1eafn h\u1ea1n", "unit": "L\u1ea7n"}, {"type": "row", "key": "II5", "label": "5. Ch\u1ec9 s\u1ed1 thanh to\u00e1n t\u1ee9c th\u1eddi", "formula": "Ti\u1ec1n v\u00e0 t\u01b0\u01a1ng \u0111\u01b0\u01a1ng ti\u1ec1n / N\u1ee3 ng\u1eafn h\u1ea1n", "unit": "L\u1ea7n"}, {"type": "header", "label": "III. Nh\u00f3m ch\u1ec9 s\u1ed1 v\u1ec1 hi\u1ec7u su\u1ea5t ho\u1ea1t \u0111\u1ed9ng"}, {"type": "row", "key": "III1", "label": "1. V\u00f2ng quay t\u1ed5ng t\u00e0i s\u1ea3n", "formula": "Doanh thu thu\u1ea7n / T\u1ed5ng T\u00e0i s\u1ea3n b\u00ecnh qu\u00e2n", "unit": "V\u00f2ng"}, {"type": "row", "key": "III2", "label": "2. V\u00f2ng quay t\u00e0i s\u1ea3n ng\u1eafn h\u1ea1n", "formula": "Doanh thu thu\u1ea7n / T\u00e0i s\u1ea3n ng\u1eafn h\u1ea1n b\u00ecnh qu\u00e2n", "unit": "V\u00f2ng"}, {"type": "row", "key": "III3", "label": "3. V\u00f2ng quay t\u00e0i s\u1ea3n d\u00e0i h\u1ea1n", "formula": "Doanh thu thu\u1ea7n / T\u00e0i s\u1ea3n d\u00e0i h\u1ea1n b\u00ecnh qu\u00e2n", "unit": "V\u00f2ng"}, {"type": "row", "key": "III4", "label": "4. V\u00f2ng quay h\u00e0ng t\u1ed3n kho", "formula": "T\u1ed5ng doanh thu thu\u1ea7n / H\u00e0ng t\u1ed3n kho b\u00ecnh qu\u00e2n", "unit": "V\u00f2ng"}, {"type": "row", "key": "III5", "label": "5. V\u00f2ng quay kho\u1ea3n ph\u1ea3i thu", "formula": "T\u1ed5ng doanh thu thu\u1ea7n / Kho\u1ea3n ph\u1ea3i thu b\u00ecnh qu\u00e2n", "unit": "V\u00f2ng"}, {"type": "row", "key": "III6", "label": "6. K\u1ef3 thu ti\u1ec1n b\u00ecnh qu\u00e2n", "formula": "C\u00e1c kho\u1ea3n ph\u1ea3i thu b\u00ecnh qu\u00e2n x 360 / Doanh thu thu\u1ea7n", "unit": "Ng\u00e0y"}, {"type": "header", "label": "IV. Nh\u00f3m ch\u1ec9 s\u1ed1 v\u1ec1 c\u01a1 c\u1ea5u t\u00e0i ch\u00ednh"}, {"type": "row", "key": "IV1", "label": "1. T\u1ef7 s\u1ed1 n\u1ee3", "formula": "T\u1ed5ng n\u1ee3 ph\u1ea3i tr\u1ea3 / T\u1ed5ng T\u00e0i s\u1ea3n", "unit": "%"}, {"type": "row", "key": "IV2", "label": "2. T\u1ef7 s\u1ed1 \u0111\u1ea3m b\u1ea3o n\u1ee3", "formula": "T\u1ed5ng n\u1ee3 ph\u1ea3i tr\u1ea3 / V\u1ed1n CSH", "unit": "L\u1ea7n"}, {"type": "row", "key": "IV3", "label": "3. Ch\u1ec9 s\u1ed1 t\u1ef1 tr\u1ee3", "formula": "V\u1ed1n ch\u1ee7 s\u1edf h\u1eefu / T\u1ed5ng ngu\u1ed3n v\u1ed1n", "unit": "%"}, {"type": "header", "label": "V. Nh\u00f3m ch\u1ec9 s\u1ed1 v\u1ec1 hi\u1ec7u qu\u1ea3"}, {"type": "row", "key": "V1", "label": "1. T\u1ef7 su\u1ea5t l\u1ee3i nhu\u1eadn tr\u00ean doanh thu (ROS)", "formula": "T\u1ed5ng l\u1ee3i nhu\u1eadn sau thu\u1ebf / T\u1ed5ng doanh thu thu\u1ea7n", "unit": "%"}, {"type": "row", "key": "V2", "label": "2. T\u1ef7 su\u1ea5t l\u1ee3i nhu\u1eadn tr\u00ean t\u1ed5ng t\u00e0i s\u1ea3n (ROA)", "formula": "T\u1ed5ng l\u1ee3i nhu\u1eadn sau thu\u1ebf / T\u1ed5ng T\u00e0i s\u1ea3n b\u00ecnh qu\u00e2n", "unit": "%"}, {"type": "row", "key": "V3", "label": "3. T\u1ef7 su\u1ea5t l\u1ee3i nhu\u1eadn tr\u00ean v\u1ed1n CSH (ROE)", "formula": "T\u1ed5ng l\u1ee3i nhu\u1eadn sau thu\u1ebf / V\u1ed1n CSH b\u00ecnh qu\u00e2n", "unit": "%"}, {"type": "row", "key": "V4", "label": "4. Kh\u1ea3 n\u0103ng thanh to\u00e1n l\u00e3i vay", "formula": "(L\u1ee3i nhu\u1eadn tr\u01b0\u1edbc thu\u1ebf + L\u00e3i vay) / L\u00e3i vay", "unit": "L\u1ea7n"}];
+    
+    // Get sorted years
+    let years = Object.keys(rawData['TSNH']).sort();
+
+    // Helper functions
+    function formatNumber(num) {
+        return new Intl.NumberFormat('en-US').format(num);
+    }
+
+    function unformatNumber(str) {
+        return parseFloat(str.replace(/,/g, '')) || 0;
+    }
+
+    function formatVal(val, unit) {
+        if (typeof val === 'string' || val === null) return val || "N/A";
+        if (unit === "%") return (val * 100).toFixed(2) + "%";
+        return val.toFixed(2);
+    }
+
+    function getAvg(key, year, prevYear) {
+        if (rawData[key][prevYear] !== undefined) {
+            return (rawData[key][year] + rawData[key][prevYear]) / 2;
+        }
+        return rawData[key][year];
+    }
+
+    // Calculate Indicators for a specific year
+    function calcIndicators(y) {
+        let prevY = (parseInt(y) - 1).toString();
+        let v = {};
+        
+        let TTS = rawData.TTS[y] || 0;
+        let TSNH = rawData.TSNH[y] || 0;
+        let TSDH = rawData.TSDH[y] || 0;
+        let NPT = rawData.NPT[y] || 0;
+        let NNH = rawData.NNH[y] || 0;
+        let NDH = rawData.NDH[y] || 0;
+        let VCSH = rawData.VCSH[y] || 0;
+        let HTK = rawData.HTK[y] || 0;
+        let Tien = rawData.Tien[y] || 0;
+        let DTT = rawData.DTT[y] || 0;
+        let LNST = rawData.LNST[y] || 0;
+        let LNTT = rawData.LNTT[y] || 0;
+        let LV = rawData.LV[y] || 0;
+
+        let TTS_avg = getAvg("TTS", y, prevY);
+        let TSNH_avg = getAvg("TSNH", y, prevY);
+        let TSDH_avg = getAvg("TSDH", y, prevY);
+        let HTK_avg = getAvg("HTK", y, prevY);
+        let KPT_avg = getAvg("KPT", y, prevY);
+        let VCSH_avg = getAvg("VCSH", y, prevY);
+
+        v.I1 = TTS ? TSNH / TTS : 0;
+        v.I2 = TTS ? TSDH / TTS : 0;
+        v.I3 = TTS ? NPT / TTS : 0;
+        v.I4 = TTS ? VCSH / TTS : 0;
+
+        v.II1 = NPT ? TTS / NPT : 0;
+        v.II2 = NDH ? TSDH / NDH : null;
+        v.II3 = NNH ? TSNH / NNH : 0;
+        v.II4 = NNH ? (TSNH - HTK) / NNH : 0;
+        v.II5 = NNH ? Tien / NNH : 0;
+
+        v.III1 = TTS_avg ? DTT / TTS_avg : 0;
+        v.III2 = TSNH_avg ? DTT / TSNH_avg : 0;
+        v.III3 = TSDH_avg ? DTT / TSDH_avg : 0;
+        v.III4 = HTK_avg ? DTT / HTK_avg : 0;
+        v.III5 = KPT_avg ? DTT / KPT_avg : 0;
+        v.III6 = DTT ? (KPT_avg * 360) / DTT : 0;
+
+        v.IV1 = TTS ? NPT / TTS : 0;
+        v.IV2 = VCSH ? NPT / VCSH : 0;
+        v.IV3 = TTS ? VCSH / TTS : 0;
+
+        v.V1 = DTT ? LNST / DTT : 0;
+        v.V2 = TTS_avg ? LNST / TTS_avg : 0;
+        v.V3 = VCSH_avg ? LNST / VCSH_avg : 0;
+        v.V4 = LV ? (LNTT + LV) / LV : null;
+
+        return v;
+    }
+
+    // Tab Switching
+    function switchTab(tabId, btn) {
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
+        btn.classList.add('active');
+    }
+
+    // Render Data Source Table
+    function renderDataTab() {
+        const head = document.getElementById('dataHead');
+        const body = document.getElementById('dataBody');
+        
+        let headHtml = '<tr><th class="sticky-col">CHỈ TIÊU TÀI CHÍNH</th>';
+        years.forEach(y => { headHtml += `<th>NĂM ${y}</th>`; });
+        headHtml += '</tr>';
+        head.innerHTML = headHtml;
+
+        let bodyHtml = '';
+        Object.keys(metricLabels).forEach(key => {
+            bodyHtml += `<tr><td class="sticky-col">${metricLabels[key]}</td>`;
+            years.forEach(y => {
+                let val = formatNumber(rawData[key][y] || 0);
+                bodyHtml += `<td><input type="text" value="${val}" onchange="updateData('${key}', '${y}', this.value)" onfocus="this.select()"></td>`;
+            });
+            bodyHtml += '</tr>';
+        });
+        body.innerHTML = bodyHtml;
+    }
+
+    // Handle Data Edit
+    function updateData(key, year, valStr) {
+        rawData[key][year] = unformatNumber(valStr);
+        renderDataTab(); // re-format
+        updateDashboard(); // instantly update charts
+    }
+
+    // Add / Remove Year
+    function addYear() {
+        let lastYear = parseInt(years[years.length - 1] || "2018");
+        let newYear = (lastYear + 1).toString();
+        years.push(newYear);
+        Object.keys(rawData).forEach(key => {
+            rawData[key][newYear] = 0; // init with 0
+        });
+        updateDropdown();
+        renderDataTab();
+        updateDashboard();
+    }
+
+    function removeLastYear() {
+        if (years.length <= 2) {
+            alert("Cần ít nhất 2 năm để so sánh!");
+            return;
+        }
+        let lastYear = years.pop();
+        Object.keys(rawData).forEach(key => {
+            delete rawData[key][lastYear];
+        });
+        updateDropdown();
+        renderDataTab();
+        updateDashboard();
+    }
+
+    // Update Dropdown
+    function updateDropdown() {
+        const select = document.getElementById('yearSelect');
+        select.innerHTML = '';
+        // Add options backwards, skipping the very first year as it has no previous to compare
+        for (let i = years.length - 1; i >= 1; i--) {
+            let y = years[i];
+            let opt = document.createElement('option');
+            opt.value = y;
+            if (y === "2026") {
+                opt.innerText = "6 Tháng Đầu Năm 2026";
+            } else {
+                opt.innerText = "Năm " + y;
+            }
+            select.appendChild(opt);
+        }
+    }
+
+    // Render Dashboard
+    function updateDashboard() {
+        const selectedYear = document.getElementById('yearSelect').value;
+        const prevYear = (parseInt(selectedYear) - 1).toString();
+        
+        if (selectedYear === "2026") {
+            document.getElementById('th-curr').innerText = "6 THÁNG 2026";
+        } else {
+            document.getElementById('th-curr').innerText = "NĂM " + selectedYear;
+        }
+        document.getElementById('th-prev').innerText = "NĂM " + prevYear;
+
+        let currVals = calcIndicators(selectedYear);
+        let prevVals = years.includes(prevYear) ? calcIndicators(prevYear) : {};
+
+        const tbody = document.getElementById('dashboardBody');
+        tbody.innerHTML = '';
+
+        layout.forEach(item => {
+            const tr = document.createElement('tr');
+            if (item.type === 'header') {
+                tr.className = 'row-header';
+                tr.innerHTML = `<td colspan="6">${item.label}</td>`;
+            } else {
+                let c_raw = currVals[item.key];
+                let p_raw = prevVals[item.key] !== undefined ? prevVals[item.key] : null;
+
+                let c_fmt = formatVal(c_raw, item.unit);
+                let p_fmt = formatVal(p_raw, item.unit);
+
+                let changeClass = 'change-neutral';
+                let changeStr = '-';
+
+                if (typeof c_raw === 'number' && typeof p_raw === 'number' && p_raw !== 0) {
+                    let pct = ((c_raw - p_raw) / Math.abs(p_raw)) * 100;
+                    let sign = pct > 0 ? '+' : '';
+                    changeStr = sign + pct.toFixed(2) + '%';
+                    if (pct > 0) changeClass = 'change-positive';
+                    else if (pct < 0) changeClass = 'change-negative';
+                }
+
+                tr.innerHTML = `
+                    <td>${item.label}</td>
+                    <td class="formula-col">${item.formula}</td>
+                    <td class="center-col">${item.unit}</td>
+                    <td class="number-col prev-col">${p_fmt}</td>
+                    <td class="number-col current-col">${c_fmt}</td>
+                    <td class="number-col ${changeClass}">${changeStr}</td>
+                `;
+            }
+            tbody.appendChild(tr);
+        });
+    }
+
+    // Init All
+    updateDropdown();
+    renderDataTab();
+    updateDashboard();
+
+</script>
+
+</body>
+</html>
+Dashboard_Tai_Chinh_Final.html
+Đã thu gọn bảng chi tiết.
