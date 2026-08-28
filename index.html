@@ -1,0 +1,569 @@
+import json
+
+data = {
+    "TSNH": {"2019": 217157413110, "2020": 301718366603, "2021": 405216395852, "2022": 517651195196, "2023": 608862067943, "2024": 439599764174, "2025": 151209652006, "2026": 169095825406},
+    "TSDH": {"2019": 395199755490, "2020": 379232669592, "2021": 358938280218, "2022": 334106334340, "2023": 334740140896, "2024": 313098395101, "2025": 294240988014, "2026": 287727826912},
+    "TTS": {"2019": 612357168600, "2020": 680951036195, "2021": 764154676070, "2022": 851757529536, "2023": 943602208839, "2024": 752698159275, "2025": 445450640020, "2026": 456823652318},
+    "NPT": {"2019": 11338835026, "2020": 12236110120, "2021": 19678447496, "2022": 22512617533, "2023": 25511451595, "2024": 24269132055, "2025": 49350445035, "2026": 102370966110},
+    "NNH": {"2019": 11338835026, "2020": 12236110120, "2021": 19678447496, "2022": 22512617533, "2023": 25511451595, "2024": 24269132055, "2025": 29918347169, "2026": 82938868244},
+    "NDH": {"2019": 0, "2020": 0, "2021": 0, "2022": 0, "2023": 0, "2024": 0, "2025": 19432097866, "2026": 19432097866},
+    "VCSH": {"2019": 601018333574, "2020": 668714926075, "2021": 744476228574, "2022": 829244912003, "2023": 918090757244, "2024": 728429027220, "2025": 396100194985, "2026": 354452686208},
+    "HTK": {"2019": 9086799021, "2020": 8640258225, "2021": 8572215037, "2022": 7964764526, "2023": 7234388270, "2024": 6684836681, "2025": 5843972303, "2026": 5541940920},
+    "Tien": {"2019": 8543266844, "2020": 2440065032, "2021": 13071731997, "2022": 12779214088, "2023": 43368730535, "2024": 1973807185, "2025": 2447125363, "2026": 22741066160},
+    "KPT": {"2019": 26229847962, "2020": 28393063141, "2021": 30668957925, "2022": 34222751912, "2023": 32811837066, "2024": 30530181975, "2025": 31495943833, "2026": 39873027854},
+    "DTT": {"2019": 142988353179, "2020": 142038360499, "2021": 162645354526, "2022": 171236258922, "2023": 157216506734, "2024": 140273672902, "2025": 169820493055, "2026": 68959773775},
+    "LNTT": {"2019": 71533018969, "2020": 74783357960, "2021": 85214110426, "2022": 97024774123, "2023": 104881224730, "2024": 82586759609, "2025": 76417346058, "2026": 39003589029},
+    "LNST": {"2019": 67934272876, "2020": 72157806501, "2021": 80938255799, "2022": 92156683429, "2023": 94337150821, "2024": 74084405976, "2025": 60871667765, "2026": 31202871223},
+    "LV": {"2019": 0, "2020": 0, "2021": 0, "2022": 0, "2023": 0, "2024": 0, "2025": 0, "2026": 0}
+}
+
+metric_labels = {
+    "TSNH": "Tài sản ngắn hạn",
+    "TSDH": "Tài sản dài hạn",
+    "TTS": "Tổng Tài sản",
+    "NPT": "Tổng nợ phải trả",
+    "NNH": "Nợ ngắn hạn",
+    "NDH": "Nợ dài hạn",
+    "VCSH": "Vốn chủ sở hữu",
+    "HTK": "Hàng tồn kho",
+    "Tien": "Tiền và tương đương tiền",
+    "KPT": "Các khoản phải thu",
+    "DTT": "Doanh thu thuần",
+    "LNTT": "Lợi nhuận trước thuế",
+    "LNST": "Lợi nhuận sau thuế",
+    "LV": "Chi phí lãi vay"
+}
+
+indicators_layout = [
+    {"type": "header", "label": "I. Chỉ số tổng quát"},
+    {"type": "row", "key": "I1", "label": "1. Tỷ trọng Tài sản ngắn hạn", "formula": "Tài sản ngắn hạn / Tổng Tài sản", "unit": "%"},
+    {"type": "row", "key": "I2", "label": "2. Tỷ trọng Tài sản dài hạn", "formula": "Tài sản dài hạn / Tổng Tài sản", "unit": "%"},
+    {"type": "row", "key": "I3", "label": "3. Tỷ trọng nợ", "formula": "Tổng nợ phải trả / Tổng nguồn vốn", "unit": "%"},
+    {"type": "row", "key": "I4", "label": "4. Tỷ trọng vốn chủ sở hữu", "formula": "Vốn chủ sở hữu / Tổng nguồn vốn", "unit": "%"},
+    {"type": "header", "label": "II. Chỉ số về khả năng thanh toán"},
+    {"type": "row", "key": "II1", "label": "1. Khả năng thanh toán tổng quát", "formula": "Tổng Tài sản / Tổng nợ phải trả", "unit": "Lần"},
+    {"type": "row", "key": "II2", "label": "2. Khả năng thanh toán nợ dài hạn", "formula": "Tài sản dài hạn / Nợ dài hạn", "unit": "Lần"},
+    {"type": "row", "key": "II3", "label": "3. Chỉ số thanh toán hiện hành", "formula": "Tài sản ngắn hạn / Nợ ngắn hạn", "unit": "Lần"},
+    {"type": "row", "key": "II4", "label": "4. Chỉ số thanh toán nhanh", "formula": "(Tài sản ngắn hạn - Hàng tồn kho) / Nợ ngắn hạn", "unit": "Lần"},
+    {"type": "row", "key": "II5", "label": "5. Chỉ số thanh toán tức thời", "formula": "Tiền và tương đương tiền / Nợ ngắn hạn", "unit": "Lần"},
+    {"type": "header", "label": "III. Nhóm chỉ số về hiệu suất hoạt động"},
+    {"type": "row", "key": "III1", "label": "1. Vòng quay tổng tài sản", "formula": "Doanh thu thuần / Tổng Tài sản bình quân", "unit": "Vòng"},
+    {"type": "row", "key": "III2", "label": "2. Vòng quay tài sản ngắn hạn", "formula": "Doanh thu thuần / Tài sản ngắn hạn bình quân", "unit": "Vòng"},
+    {"type": "row", "key": "III3", "label": "3. Vòng quay tài sản dài hạn", "formula": "Doanh thu thuần / Tài sản dài hạn bình quân", "unit": "Vòng"},
+    {"type": "row", "key": "III4", "label": "4. Vòng quay hàng tồn kho", "formula": "Tổng doanh thu thuần / Hàng tồn kho bình quân", "unit": "Vòng"},
+    {"type": "row", "key": "III5", "label": "5. Vòng quay khoản phải thu", "formula": "Tổng doanh thu thuần / Khoản phải thu bình quân", "unit": "Vòng"},
+    {"type": "row", "key": "III6", "label": "6. Kỳ thu tiền bình quân", "formula": "Các khoản phải thu bình quân x 360 / Doanh thu thuần", "unit": "Ngày"},
+    {"type": "header", "label": "IV. Nhóm chỉ số về cơ cấu tài chính"},
+    {"type": "row", "key": "IV1", "label": "1. Tỷ số nợ", "formula": "Tổng nợ phải trả / Tổng Tài sản", "unit": "%"},
+    {"type": "row", "key": "IV2", "label": "2. Tỷ số đảm bảo nợ", "formula": "Tổng nợ phải trả / Vốn CSH", "unit": "Lần"},
+    {"type": "row", "key": "IV3", "label": "3. Chỉ số tự trợ", "formula": "Vốn chủ sở hữu / Tổng nguồn vốn", "unit": "%"},
+    {"type": "header", "label": "V. Nhóm chỉ số về hiệu quả"},
+    {"type": "row", "key": "V1", "label": "1. Tỷ suất lợi nhuận trên doanh thu (ROS)", "formula": "Tổng lợi nhuận sau thuế / Tổng doanh thu thuần", "unit": "%"},
+    {"type": "row", "key": "V2", "label": "2. Tỷ suất lợi nhuận trên tổng tài sản (ROA)", "formula": "Tổng lợi nhuận sau thuế / Tổng Tài sản bình quân", "unit": "%"},
+    {"type": "row", "key": "V3", "label": "3. Tỷ suất lợi nhuận trên vốn CSH (ROE)", "formula": "Tổng lợi nhuận sau thuế / Vốn CSH bình quân", "unit": "%"},
+    {"type": "row", "key": "V4", "label": "4. Khả năng thanh toán lãi vay", "formula": "(Lợi nhuận trước thuế + Lãi vay) / Lãi vay", "unit": "Lần"},
+]
+
+html_content = f"""<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Chỉ Tiêu Tài Chính Động</title>
+    <style>
+        body {{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f4f8;
+            color: #333;
+            position: relative;
+        }}
+        .container {{
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            padding-bottom: 0px; /* Adjust for footer */
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+        }}
+        h1 {{
+            text-align: center;
+            color: #1a4f76;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            font-size: 28px;
+        }}
+        .tabs {{
+            display: flex;
+            border-bottom: 2px solid #1a4f76;
+            margin-bottom: 20px;
+        }}
+        .tab-btn {{
+            padding: 12px 25px;
+            background-color: #e9f0f5;
+            color: #1a4f76;
+            border: none;
+            border-radius: 8px 8px 0 0;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-right: 5px;
+            transition: background-color 0.3s;
+        }}
+        .tab-btn.active {{
+            background-color: #1a4f76;
+            color: #fff;
+        }}
+        .tab-btn:hover:not(.active) {{
+            background-color: #d1e2ef;
+        }}
+        .tab-content {{
+            display: none;
+            padding-bottom: 30px;
+        }}
+        .tab-content.active {{
+            display: block;
+        }}
+        .controls {{
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 20px;
+            background-color: #e9f0f5;
+            padding: 15px;
+            border-radius: 8px;
+        }}
+        .controls label {{
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 16px;
+            color: #1a4f76;
+        }}
+        select, input[type="text"], input[type="number"] {{
+            padding: 8px 12px;
+            font-size: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+        }}
+        select {{
+            border: 2px solid #1a4f76;
+            background-color: #fff;
+            color: #1a4f76;
+            font-weight: bold;
+            cursor: pointer;
+        }}
+        .btn {{
+            padding: 10px 20px;
+            font-size: 15px;
+            background-color: #1a4f76;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin-left: 10px;
+        }}
+        .btn.danger {{
+            background-color: #dc3545;
+        }}
+        .btn:hover {{
+            opacity: 0.9;
+        }}
+        table {{
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }}
+        th, td {{
+            padding: 12px 10px;
+            border: 1px solid #dce4ec;
+            text-align: left;
+        }}
+        th {{
+            background-color: #1a4f76;
+            color: #fff;
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+        }}
+        .row-header td {{
+            background-color: #d1e2ef;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #1a4f76;
+            font-size: 15px;
+        }}
+        tr:nth-child(even):not(.row-header) {{
+            background-color: #f9fbfd;
+        }}
+        .center-col {{ text-align: center; }}
+        .number-col {{
+            text-align: right;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+        }}
+        .current-col {{
+            color: #0056b3;
+            background-color: #f0f7fb;
+        }}
+        .prev-col {{ color: #6c757d; }}
+        .change-positive {{ color: #28a745; }}
+        .change-negative {{ color: #dc3545; }}
+        .change-neutral {{ color: #6c757d; }}
+        .formula-col {{ font-size: 13px; color: #555; font-style: italic; }}
+        
+        .footer {{
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+            font-size: 14px;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+            background-color: #f9fbfd;
+            border-radius: 0 0 10px 10px;
+        }}
+
+        /* Data Table Editable Cells */
+        #dataTable input {{
+            width: 100%;
+            box-sizing: border-box;
+            text-align: right;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            color: #333;
+            border: 1px solid transparent;
+            background: transparent;
+        }}
+        #dataTable input:focus {{
+            border: 1px solid #1a4f76;
+            background: #fff;
+        }}
+        #dataTable td.sticky-col {{
+            position: sticky;
+            left: 0;
+            background-color: #f9fbfd;
+            font-weight: bold;
+            z-index: 2;
+        }}
+
+        @media print {{
+            body {{ background-color: #fff; padding: 0; }}
+            .container {{ box-shadow: none; max-width: 100%; padding: 0; }}
+            .controls, .tabs, #dataTab {{ display: none !important; }}
+            #dashboardTab {{ display: block !important; }}
+            th {{ color: #000; background-color: #e0e0e0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }}
+            .row-header td {{ background-color: #f0f0f0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }}
+            .footer {{
+                position: relative;
+                margin-top: 20px;
+                border-top: 1px solid #ccc;
+                background-color: transparent;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }}
+        }}
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Công Cụ Phân Tích Tài Chính</h1>
+    
+    <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('dashboardTab', this)">📊 Dashboard Phân Tích</button>
+        <button class="tab-btn" onclick="switchTab('dataTab', this)">📝 Nguồn Dữ Liệu</button>
+    </div>
+
+    <!-- TAB DASHBOARD -->
+    <div id="dashboardTab" class="tab-content active">
+        <div class="controls">
+            <label for="yearSelect">Năm phân tích:</label>
+            <select id="yearSelect" onchange="updateDashboard()"></select>
+            <button class="btn" onclick="window.print()">🖨️ In Báo Cáo</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th width="25%">CHỈ SỐ</th>
+                    <th width="25%">CÔNG THỨC TÍNH</th>
+                    <th width="10%">ĐƠN VỊ</th>
+                    <th width="15%" id="th-prev">NĂM TRƯỚC</th>
+                    <th width="15%" id="th-curr">NĂM NAY</th>
+                    <th width="10%">TĂNG/GIẢM</th>
+                </tr>
+            </thead>
+            <tbody id="dashboardBody"></tbody>
+        </table>
+    </div>
+
+    <!-- TAB DATA SOURCE -->
+    <div id="dataTab" class="tab-content">
+        <div class="controls" style="justify-content: space-between;">
+            <div style="color: #666; font-style: italic;">Lưu ý: Sửa số liệu trực tiếp vào ô, hệ thống sẽ tự động tính lại.</div>
+            <div>
+                <button class="btn" onclick="addYear()">+ Thêm Năm</button>
+                <button class="btn danger" onclick="removeLastYear()">- Bớt Năm</button>
+            </div>
+        </div>
+        <div style="overflow-x: auto;">
+            <table id="dataTable">
+                <thead id="dataHead"></thead>
+                <tbody id="dataBody"></tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div class="footer">
+        File báo cáo này được tạo bởi Phòng Tài chính-Kế toán công ty, số 263 Hoàng Văn Thụ, Phường 1 Bảo Lộc, tỉnh Lâm Đồng. Email: tckt@vrgbaoloc.com
+    </div>
+</div>
+
+<script>
+    // Initial Data
+    let rawData = {json.dumps(data)};
+    let metricLabels = {json.dumps(metric_labels)};
+    let layout = {json.dumps(indicators_layout)};
+    
+    // Get sorted years
+    let years = Object.keys(rawData['TSNH']).sort();
+
+    // Helper functions
+    function formatNumber(num) {{
+        return new Intl.NumberFormat('en-US').format(num);
+    }}
+
+    function unformatNumber(str) {{
+        return parseFloat(str.replace(/,/g, '')) || 0;
+    }}
+
+    function formatVal(val, unit) {{
+        if (typeof val === 'string' || val === null) return val || "N/A";
+        if (unit === "%") return (val * 100).toFixed(2) + "%";
+        return val.toFixed(2);
+    }}
+
+    function getAvg(key, year, prevYear) {{
+        if (rawData[key][prevYear] !== undefined) {{
+            return (rawData[key][year] + rawData[key][prevYear]) / 2;
+        }}
+        return rawData[key][year];
+    }}
+
+    // Calculate Indicators for a specific year
+    function calcIndicators(y) {{
+        let prevY = (parseInt(y) - 1).toString();
+        let v = {{}};
+        
+        let TTS = rawData.TTS[y] || 0;
+        let TSNH = rawData.TSNH[y] || 0;
+        let TSDH = rawData.TSDH[y] || 0;
+        let NPT = rawData.NPT[y] || 0;
+        let NNH = rawData.NNH[y] || 0;
+        let NDH = rawData.NDH[y] || 0;
+        let VCSH = rawData.VCSH[y] || 0;
+        let HTK = rawData.HTK[y] || 0;
+        let Tien = rawData.Tien[y] || 0;
+        let DTT = rawData.DTT[y] || 0;
+        let LNST = rawData.LNST[y] || 0;
+        let LNTT = rawData.LNTT[y] || 0;
+        let LV = rawData.LV[y] || 0;
+
+        let TTS_avg = getAvg("TTS", y, prevY);
+        let TSNH_avg = getAvg("TSNH", y, prevY);
+        let TSDH_avg = getAvg("TSDH", y, prevY);
+        let HTK_avg = getAvg("HTK", y, prevY);
+        let KPT_avg = getAvg("KPT", y, prevY);
+        let VCSH_avg = getAvg("VCSH", y, prevY);
+
+        v.I1 = TTS ? TSNH / TTS : 0;
+        v.I2 = TTS ? TSDH / TTS : 0;
+        v.I3 = TTS ? NPT / TTS : 0;
+        v.I4 = TTS ? VCSH / TTS : 0;
+
+        v.II1 = NPT ? TTS / NPT : 0;
+        v.II2 = NDH ? TSDH / NDH : null;
+        v.II3 = NNH ? TSNH / NNH : 0;
+        v.II4 = NNH ? (TSNH - HTK) / NNH : 0;
+        v.II5 = NNH ? Tien / NNH : 0;
+
+        v.III1 = TTS_avg ? DTT / TTS_avg : 0;
+        v.III2 = TSNH_avg ? DTT / TSNH_avg : 0;
+        v.III3 = TSDH_avg ? DTT / TSDH_avg : 0;
+        v.III4 = HTK_avg ? DTT / HTK_avg : 0;
+        v.III5 = KPT_avg ? DTT / KPT_avg : 0;
+        v.III6 = DTT ? (KPT_avg * 360) / DTT : 0;
+
+        v.IV1 = TTS ? NPT / TTS : 0;
+        v.IV2 = VCSH ? NPT / VCSH : 0;
+        v.IV3 = TTS ? VCSH / TTS : 0;
+
+        v.V1 = DTT ? LNST / DTT : 0;
+        v.V2 = TTS_avg ? LNST / TTS_avg : 0;
+        v.V3 = VCSH_avg ? LNST / VCSH_avg : 0;
+        v.V4 = LV ? (LNTT + LV) / LV : null;
+
+        return v;
+    }}
+
+    // Tab Switching
+    function switchTab(tabId, btn) {{
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
+        btn.classList.add('active');
+    }}
+
+    // Render Data Source Table
+    function renderDataTab() {{
+        const head = document.getElementById('dataHead');
+        const body = document.getElementById('dataBody');
+        
+        let headHtml = '<tr><th class="sticky-col">CHỈ TIÊU TÀI CHÍNH</th>';
+        years.forEach(y => {{ headHtml += `<th>NĂM ${{y}}</th>`; }});
+        headHtml += '</tr>';
+        head.innerHTML = headHtml;
+
+        let bodyHtml = '';
+        Object.keys(metricLabels).forEach(key => {{
+            bodyHtml += `<tr><td class="sticky-col">${{metricLabels[key]}}</td>`;
+            years.forEach(y => {{
+                let val = formatNumber(rawData[key][y] || 0);
+                bodyHtml += `<td><input type="text" value="${{val}}" onchange="updateData('${{key}}', '${{y}}', this.value)" onfocus="this.select()"></td>`;
+            }});
+            bodyHtml += '</tr>';
+        }});
+        body.innerHTML = bodyHtml;
+    }}
+
+    // Handle Data Edit
+    function updateData(key, year, valStr) {{
+        rawData[key][year] = unformatNumber(valStr);
+        renderDataTab(); // re-format
+        updateDashboard(); // instantly update charts
+    }}
+
+    // Add / Remove Year
+    function addYear() {{
+        let lastYear = parseInt(years[years.length - 1] || "2018");
+        let newYear = (lastYear + 1).toString();
+        years.push(newYear);
+        Object.keys(rawData).forEach(key => {{
+            rawData[key][newYear] = 0; // init with 0
+        }});
+        updateDropdown();
+        renderDataTab();
+        updateDashboard();
+    }}
+
+    function removeLastYear() {{
+        if (years.length <= 2) {{
+            alert("Cần ít nhất 2 năm để so sánh!");
+            return;
+        }}
+        let lastYear = years.pop();
+        Object.keys(rawData).forEach(key => {{
+            delete rawData[key][lastYear];
+        }});
+        updateDropdown();
+        renderDataTab();
+        updateDashboard();
+    }}
+
+    // Update Dropdown
+    function updateDropdown() {{
+        const select = document.getElementById('yearSelect');
+        select.innerHTML = '';
+        // Add options backwards, skipping the very first year as it has no previous to compare
+        for (let i = years.length - 1; i >= 1; i--) {{
+            let y = years[i];
+            let opt = document.createElement('option');
+            opt.value = y;
+            if (y === "2026") {{
+                opt.innerText = "6 Tháng Đầu Năm 2026";
+            }} else {{
+                opt.innerText = "Năm " + y;
+            }}
+            select.appendChild(opt);
+        }}
+    }}
+
+    // Render Dashboard
+    function updateDashboard() {{
+        const selectedYear = document.getElementById('yearSelect').value;
+        const prevYear = (parseInt(selectedYear) - 1).toString();
+        
+        if (selectedYear === "2026") {{
+            document.getElementById('th-curr').innerText = "6 THÁNG 2026";
+        }} else {{
+            document.getElementById('th-curr').innerText = "NĂM " + selectedYear;
+        }}
+        document.getElementById('th-prev').innerText = "NĂM " + prevYear;
+
+        let currVals = calcIndicators(selectedYear);
+        let prevVals = years.includes(prevYear) ? calcIndicators(prevYear) : {{}};
+
+        const tbody = document.getElementById('dashboardBody');
+        tbody.innerHTML = '';
+
+        layout.forEach(item => {{
+            const tr = document.createElement('tr');
+            if (item.type === 'header') {{
+                tr.className = 'row-header';
+                tr.innerHTML = `<td colspan="6">${{item.label}}</td>`;
+            }} else {{
+                let c_raw = currVals[item.key];
+                let p_raw = prevVals[item.key] !== undefined ? prevVals[item.key] : null;
+
+                let c_fmt = formatVal(c_raw, item.unit);
+                let p_fmt = formatVal(p_raw, item.unit);
+
+                let changeClass = 'change-neutral';
+                let changeStr = '-';
+
+                if (typeof c_raw === 'number' && typeof p_raw === 'number' && p_raw !== 0) {{
+                    let pct = ((c_raw - p_raw) / Math.abs(p_raw)) * 100;
+                    let sign = pct > 0 ? '+' : '';
+                    changeStr = sign + pct.toFixed(2) + '%';
+                    if (pct > 0) changeClass = 'change-positive';
+                    else if (pct < 0) changeClass = 'change-negative';
+                }}
+
+                tr.innerHTML = `
+                    <td>${{item.label}}</td>
+                    <td class="formula-col">${{item.formula}}</td>
+                    <td class="center-col">${{item.unit}}</td>
+                    <td class="number-col prev-col">${{p_fmt}}</td>
+                    <td class="number-col current-col">${{c_fmt}}</td>
+                    <td class="number-col ${{changeClass}}">${{changeStr}}</td>
+                `;
+            }}
+            tbody.appendChild(tr);
+        }});
+    }}
+
+    // Init All
+    updateDropdown();
+    renderDataTab();
+    updateDashboard();
+
+</script>
+
+</body>
+</html>
+"""
+
+with open("Dashboard_Tai_Chinh_Final.html", "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+print("Created successfully with footer and no watermark.")
